@@ -28,3 +28,9 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Application architecture
+- Public directories and opportunities load through a server function and shared Query options; private dashboard reads use authenticated middleware to preserve SSR and user isolation.
+- All durable changes use Cloud tables and RLS; account roles live separately from editable profiles, and administrator access is never self-assigned.
+- Professional directory entries contain only intentionally published fields; documents remain in a private owner-scoped bucket and are shared only with application recipients.
+- Use flat route files for public pages and the managed authenticated folder for the dashboard, avoiding duplicate root paths.
